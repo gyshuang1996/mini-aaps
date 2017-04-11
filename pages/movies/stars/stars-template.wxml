@@ -1,0 +1,23 @@
+<template name="starsTemplate">
+  <view class="stars-container">
+    <view class="stars">
+    <!--如果是是半星  就不要用[1,1,1,0,0]来代替了 换个方式 如[1,1,1,2,0]这样
+    <block wx:for="{{stars}}" wx:for-item="{{i}}">
+      <image wx:if="{{i==1}}" src="/images/icon/star.png"></image>
+      <image wx:elif="{{i==2}}" src="/images/icon/star.png"></image>
+      <image wx:else src="/images/icon/none-star.png"></image>
+    </block>-->
+    <block wx:for="{{stars}}" wx:for-item="i">
+        <image wx:if="{{i}}" src="/images/icon/star.png"></image>
+        <image wx:else src="/images/icon/none-star.png"></image>
+      </block>
+     <!-- <image  src="/images/icon/none-star.png"></image>
+      <image  src="/images/icon/none-star.png"></image>
+      <image  src="/images/icon/none-star.png"></image>
+      <image  src="/images/icon/none-star.png"></image>
+      <image  src="/images/icon/none-star.png"></image>-->
+      <!--五星写成一个循环 数组的方式-->
+    </view>
+    <text class="star-score">{{score}}</text>
+  </view>
+</template>

@@ -1,0 +1,40 @@
+@import "../movie/movie-template.wxss";
+.movie-list-container{
+    display:flex;
+    flex-direction:column;
+    background-color:#fff;
+}
+.inner-container{
+    margin:0 auto 20rpx;
+}
+.movie-head{
+    padding:30rpx 20rpx 22rpx;
+    display:flex;
+    flex-direction:row;
+    /*row平行排布 flex-start左边 flex-end靠右边排布 center 中间*/
+    /*justify-content: space-around; 平均分布*/
+    justify-content:space-between;/*两边对齐  但是两边可能会不一样高 所以可以用margin padding微调一下*/
+}
+.slogan{
+    padding-top:9rpx;
+    font-size:24rpx;
+}
+.more{
+    /*float:right;
+    margin-right:22rpx;*/
+}
+.more-text{
+    /*vertical-align: middle;垂直居中 当弄成盒模型 vertical-align:middle已经不管用了*/
+    margin-right:10rpx;
+    color:#1f4ba5;
+}
+.more-img{
+    width:9rpx;
+    height:16rpx;
+    /*vertical-align:middle;*/
+}
+.movies-container{
+    display:flex;
+    flex-direction:row;
+   
+}

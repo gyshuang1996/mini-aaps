@@ -1,0 +1,55 @@
+<!--引入模板template-->
+<import src="post-template/post-item-template.wxml"/>
+<view>
+  <!--如果要想纵向滚动  在swiper里加vertical="true"属性
+如果要把属性值改为false 则应改为这样swiper="{{false}}"-->
+<!--swiper组件跳转到文章详情页面 -->
+  <swiper catchtap="onswiperTap" indicator-dots="true" autoplay="true" circular="true">
+    <swiper-item>
+      <image  src="/images/iqiyi.png" data-postId="2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image  src="/images/vr.png" data-postId="1"></image>
+    </swiper-item>
+    <swiper-item>
+      <image  src="/images/wx.png" data-postId="3"></image>
+    </swiper-item>
+  </swiper>
+
+  <!--构建新闻列表-->
+
+  <!--bolck代表一个括号一样 这里面的item代表这一个数组下面的子元素
+  wx:for-index="idx"  {{idx}}代表的是数组子元素的序号
+  -->
+  <!--小程序里面的wx:for解决了一个页面的重复内容  但只能是在一个页面内重复-->
+  <block wx:for="{{posts_key}}" wx:for-item="item">
+  <!--//template 下面的模板代码 以及写入template模板里用import引入了路径-->
+   <!-- <view class="post-container">
+      <view class="post-author-date">-->
+        <!--标签的隐藏与显示 在标签里写上wx:if="{{false}}“则为隐藏"-->
+        <!--<image class="post-author" src="{{item.author_img}}"></image>
+        <text class="post-date">{{item.date}}</text>
+      </view>-->
+      <!--还可以字符串运算 {{"hello"+title}}-->
+      <!--<text class="post-title">{{item.title}}</text>
+      <image class="post-image" src="{{item.post_img}}"></image>
+      <text class="post-content">{{item.content}}</text>
+      <view class="post-like">
+        <image class="post-like-image" src="../../images/icon/chat.png"></image>
+        <text class="post-like-font">{{item.view_num}}</text>
+        <image class="post-like-image" src="../../images/icon/chat1.png"></image>
+        <text class="post-like-font">{{item.collect_num}}</text>
+      </view>
+    </view>-->
+    
+  <!--<template is="postItem" data="{{item}}"></template>-->
+  <!--在item前面加三个小点 相当于把item这个子元素里面的内容平铺了 调用里面的数据时就不用在前面加item了{{item.title}} 直接用{{titel}}更方便-->
+  <!--template只是个占位符 不能在里面绑定事件 因为一运行根本就没有这个template-->
+  <!--因为不知道获取哪个子元素的内容 所以要给内容弄一个标签 用date-名字="{{item.标签名}}"来获取   凡是data-连接的都叫自定义标签-->
+  <view catchtap="onposttap" data-postId="{{item.postId}}">
+   <template is="postItem" data="{{...item}}" ></template>
+   </view>
+  <!--is这里等于的是模板名字 name  用data引入数据 用item引入子元素-->
+  
+  </block>
+</view>

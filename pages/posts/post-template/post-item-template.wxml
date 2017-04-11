@@ -1,0 +1,22 @@
+<template name="postItem">
+  <view class="post-container">
+    <view class="post-author-date">
+
+    <!--标签的隐藏与显示 在标签里写上wx:if="{{false}}“则为隐藏"-->
+      <image class="post-author" src="{{author_img}}"></image>
+      <text class="post-date">{{date}}</text>
+    </view>
+
+    <!--还可以字符串运算 {{"hello"+title}}-->
+    <text class="post-title">{{title}}</text>
+    <image class="post-image" src="{{post_img}}"></image>
+    <text class="post-content">{{content}}</text>
+    <view class="post-like">
+    <!--在template里面最好用绝对路径 不是下面这种相对路径  因为模板会被不同文件调用 文件层级不一样时  相对路径会不同 所以最好用绝对路径-->
+      <image class="post-like-image" src="../../images/icon/chat.png"></image>
+      <text class="post-like-font">{{view_num}}</text>
+      <image class="post-like-image" src="../../images/icon/chat1.png"></image>
+      <text class="post-like-font">{{collect_num}}</text>
+    </view>
+  </view>
+  </template>

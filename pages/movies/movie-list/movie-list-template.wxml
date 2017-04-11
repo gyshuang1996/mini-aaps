@@ -1,0 +1,31 @@
+<import src="../movie/movie-template.wxml" />
+<template name="movieListTemplate">
+  <view class="movie-list-container">
+  <view class="inner-container">
+    <view class="movie-head">
+      <text class="slogan">{{currenttitle}}</text>
+      <!--加一个自定义数据data-category="{{currenttitle}}" 好判断点击的是哪一个类型的电影-->
+      <view catchtap="onMoreTap" class="more" data-category="{{currenttitle}}">
+        <text class="more-text">更多</text>
+        <image class="more-img" src="/images/icon/arrow-right.png"></image>
+      </view>
+    </view>
+    <view class="movies-container">
+    <!--循环三次-->
+    <block wx:for="{{movies}}" wx:for-item="movie">
+      <template is="movieTemplate" data="{{...movie}}"/>
+       </block>
+    <!--
+    <block wx:for="{{inTheaters.movies}}" wx:for-item="movie">
+      <template is="movieTemplate" data="{{...movie}}"/>
+       </block>
+       <block wx:for="{{comingSoon.movies}}" wx:for-item="movie">
+      <template is="movieTemplate" data="{{...movie}}"/>
+       </block>
+       <block wx:for="{{top250.movies}}" wx:for-item="movie">
+      <template is="movieTemplate" data="{{...movie}}"/>
+       </block>-->
+      </view>
+    </view>
+  </view>
+</template>

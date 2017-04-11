@@ -1,0 +1,9 @@
+<view class='container'>
+    <image  class='user-4' src="/images/avatar/4.png"></image>
+    <!--只有text标签包围起来的文字才能长按选中 text还可以转义
+    在IPone6 下 用rpx里换为px  是2:1 如200rpx wei 100px-->
+    <text class='user-name'><text style="color:green;font-size:46rpx;">hello</text> 七月</text>
+    <view class='moto-container' bindtap="ontap" >
+        <text class='moto'>开启小程序之旅</text>
+    </view>
+</view>

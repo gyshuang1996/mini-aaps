@@ -1,0 +1,29 @@
+
+<!--先静后动  先样式再数据-->
+<view class="container">
+  <image wx:if="{{isplayingmusic}}"class="head-image" src="{{posts_data.music.coverImg}}"></image>
+  <image wx:else class="head-image" src="{{posts_data.headimgsrc}}"></image>
+  <image catchtap="onmusictap"src="{{isplayingmusic?'/images/music/music-stop.png':'/images/music/music-start.png'}}"></image>
+  <view class="author-date">
+    <image class="avatar" src="{{posts_data.author_img}}"></image>
+    <text class="author">{{posts_data.author}}</text>
+    <text class="const-text">发表于</text>
+    <text class="date">{{posts_data.datetime}}</text>
+  </view>
+  <text class="title">{{posts_data.title}}</text>
+  <view class="tool">
+    <view class="circle-img">
+
+      <!--获取缓存-->
+
+      <!--如果wx:if里面的collection为真 则显示这个图片 否则wx:else 就显示另外一个图片-->
+      <image wx:if="{{collected}}" catchtap="ontap" src="/images/icon/collection.png"></image>
+      <image wx:else catchtap="ontap" src="/images/icon/collection-anti.png"></image>
+      <image catchtap="onsharetap"class="share-img" src="/images/icon/share.png"></image>
+    </view>
+    <view class="horizon"></view>
+
+    <!--代表水平直线-->
+  </view>
+  <text class="detail">{{posts_data.datail}}</text>
+</view>
